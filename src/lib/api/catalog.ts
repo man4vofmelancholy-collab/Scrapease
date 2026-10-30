@@ -55,7 +55,7 @@ export function slugify(s: string) {
 }
 
 export async function saveCategory(input: {
-  id?: string;
+  id?: string | undefined;
   name: string;
   description: string;
   unit: ScrapUnit;

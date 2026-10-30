@@ -52,7 +52,7 @@ function Actions({ r }: { r: PickupRequest }) {
   }
   async function saveFinal() {
     const n = Number(final);
-    if (!(n >= 0)) return toast.error("Enter a valid amount");
+    if (!(n >= 0)) return void toast.error("Enter a valid amount");
     setBusy(true);
     try { await setFinalTotal(r.id, n); toast.success("Final amount saved"); await refresh(); }
     catch (e) { toast.error(e instanceof Error ? e.message : "Save failed"); }

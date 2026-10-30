@@ -40,8 +40,8 @@ function CategoryForm({ c, onDone }: { c?: AdminCategory; onDone?: () => void })
   const [busy, setBusy] = useState(false);
   async function submit(e: FormEvent) {
     e.preventDefault();
-    if (f.name.trim().length < 2) return toast.error("Name is too short");
-    if (!c && !(Number(f.rate) > 0)) return toast.error("Enter a starting rate");
+    if (f.name.trim().length < 2) return void toast.error("Name is too short");
+    if (!c && !(Number(f.rate) > 0)) return void toast.error("Enter a starting rate");
     setBusy(true);
     try {
       const id = await saveCategory({ id: c?.id, ...f });
@@ -85,7 +85,7 @@ function CategoryCard({ c }: { c: AdminCategory }) {
   const current = c.scrap_rates[0];
   async function updateRate() {
     const n = Number(rate);
-    if (!(n > 0)) return toast.error("Enter a rate above 0");
+    if (!(n > 0)) return void toast.error("Enter a rate above 0");
     setBusy(true);
     try {
       const { supabase } = await import("@/integrations/supabase/client");

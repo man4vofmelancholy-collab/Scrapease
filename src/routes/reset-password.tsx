@@ -24,7 +24,7 @@ function Reset() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const { error } = await supabase.auth.updateUser({ password: pw });
-    if (error) return toast.error(error.message);
+    if (error) return void toast.error(error.message);
     toast.success("Password updated");
     navigate({ to: "/my-requests" });
   }

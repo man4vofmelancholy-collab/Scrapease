@@ -45,11 +45,11 @@ function Sell() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const items = priced.filter((p) => p.rate && Number(p.quantity) > 0);
-    if (items.length === 0) return toast.error("Add at least one material with a quantity.");
-    if (form.name.trim().length < 2) return toast.error("Enter your name.");
-    if (!MOBILE_RE.test(form.mobile)) return toast.error("Enter a valid 10-digit mobile number.");
-    if (form.address.trim().length < 5) return toast.error("Enter your pickup address.");
-    if (!PINCODE_RE.test(form.pincode)) return toast.error("Enter a valid 6-digit pincode.");
+    if (items.length === 0) return void toast.error("Add at least one material with a quantity.");
+    if (form.name.trim().length < 2) return void toast.error("Enter your name.");
+    if (!MOBILE_RE.test(form.mobile)) return void toast.error("Enter a valid 10-digit mobile number.");
+    if (form.address.trim().length < 5) return void toast.error("Enter your pickup address.");
+    if (!PINCODE_RE.test(form.pincode)) return void toast.error("Enter a valid 6-digit pincode.");
     setSubmitting(true);
     try {
       const res = await submitPickupRequest({
