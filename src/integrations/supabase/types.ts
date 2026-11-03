@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_enquiries: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          email: string | null
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          status: Database["public"]["Enums"]["enquiry_status"]
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["enquiry_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          status?: Database["public"]["Enums"]["enquiry_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       pickup_request_items: {
         Row: {
           category_id: string
@@ -187,6 +226,7 @@ export type Database = {
           created_at: string
           description: string | null
           id: string
+          image_url: string | null
           is_active: boolean
           name: string
           slug: string
@@ -198,6 +238,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          image_url?: string | null
           is_active?: boolean
           name: string
           slug: string
@@ -209,6 +250,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          image_url?: string | null
           is_active?: boolean
           name?: string
           slug?: string
@@ -295,6 +337,7 @@ export type Database = {
       }
     }
     Functions: {
+      delete_scrap_category: { Args: { _id: string }; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -320,6 +363,7 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "customer"
+      enquiry_status: "new" | "in_progress" | "resolved"
       pickup_status:
         | "pending"
         | "confirmed"
@@ -456,6 +500,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "customer"],
+      enquiry_status: ["new", "in_progress", "resolved"],
       pickup_status: [
         "pending",
         "confirmed",
