@@ -27,7 +27,7 @@ function Categories() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {data?.map((c) => (
           <div key={c.category_id} className="rounded-lg border bg-card p-5">
-            <Package className="h-5 w-5 text-primary" />
+            {c.image_url ? <img src={c.image_url} alt={c.name} loading="lazy" className="h-32 w-full rounded-md object-cover" /> : <Package className="h-5 w-5 text-primary" />}
             <h2 className="mt-2 text-lg font-semibold">{c.name}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{c.description}</p>
             <p className="mt-3 text-xs text-muted-foreground">Sold per {UNIT_LABELS[c.unit]}</p>

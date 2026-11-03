@@ -11,6 +11,7 @@ export type CurrentRate = {
   sort_order: number;
   rate_per_unit: number;
   rate_updated_at: string;
+  image_url: string | null;
 };
 
 export const currentRatesQuery = queryOptions({
@@ -30,6 +31,7 @@ export type AdminCategory = {
   unit: ScrapUnit;
   is_active: boolean;
   sort_order: number;
+  image_url: string | null;
   scrap_rates: { id: string; rate_per_unit: number; effective_from: string }[];
 };
 
@@ -38,7 +40,7 @@ export const adminCategoriesQuery = queryOptions({
   queryFn: async (): Promise<AdminCategory[]> => {
     const { data, error } = await supabase
       .from("scrap_categories")
-      .select("id,name,slug,description,unit,is_active,sort_order,scrap_rates(id,rate_per_unit,effective_from)")
+      .select("id,name,slug,description,unit,is_active,sort_order,image_url,scrap_rates(id,rate_per_unit,effective_from)")
       .order("sort_order");
     if (error) throw error;
     return (data ?? []).map((c) => ({
@@ -61,6 +63,7 @@ export async function saveCategory(input: {
   unit: ScrapUnit;
   sort_order: number;
   is_active: boolean;
+  image_url: string;
 }) {
   const row = {
     name: input.name.trim(),
@@ -69,6 +72,7 @@ export async function saveCategory(input: {
     unit: input.unit,
     sort_order: input.sort_order,
     is_active: input.is_active,
+    image_url: input.image_url.trim() || null,
   };
   const q = input.id
     ? supabase.from("scrap_categories").update(row).eq("id", input.id).select("id").single()

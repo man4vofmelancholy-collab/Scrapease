@@ -55,7 +55,7 @@ const SELECT =
   "id,request_code,customer_name,mobile,address,pincode,preferred_date,notes,status,estimated_total,final_total,created_at,pickup_request_items(id,category_name,quantity,unit,rate_snapshot,line_estimate)";
 
 async function list(filter?: { customerId?: string; status?: PickupStatus | "all" }) {
-  let q = supabase.from("pickup_requests").select(SELECT).order("created_at", { ascending: false }).limit(200);
+  let q = supabase.from("pickup_requests").select(SELECT).order("created_at", { ascending: false }).limit(1000);
   if (filter?.customerId) q = q.eq("customer_id", filter.customerId);
   if (filter?.status && filter.status !== "all") q = q.eq("status", filter.status);
   const { data, error } = await q;
