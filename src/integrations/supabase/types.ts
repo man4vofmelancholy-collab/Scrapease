@@ -326,6 +326,7 @@ export type Database = {
         Row: {
           category_id: string | null
           description: string | null
+          image_url: string | null
           name: string | null
           rate_per_unit: number | null
           rate_updated_at: string | null
