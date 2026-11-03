@@ -40,7 +40,7 @@ export function SiteHeader() {
           <Recycle className="h-6 w-6" /> ScrapEase
           {isAdmin && <span className="rounded bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">Admin</span>}
         </Link>
-        <div className="order-3 flex items-center gap-2 text-sm sm:order-none sm:ml-auto">
+        <div className="ml-auto flex items-center gap-2 text-sm md:order-last md:ml-0">
           {user ? (
             <>
               {isAdmin ? (
@@ -54,7 +54,7 @@ export function SiteHeader() {
             <Button asChild size="sm"><Link to="/auth">Sign in</Link></Button>
           )}
         </div>
-        <nav className="-mx-1 flex w-full gap-4 overflow-x-auto px-1 pb-1 text-sm sm:order-first sm:ml-[9.5rem] sm:w-auto sm:flex-1 sm:pb-0 [&]:order-last">
+        <nav className="order-last flex w-full gap-4 overflow-x-auto pb-1 text-sm md:order-none md:w-auto md:flex-1 md:pb-0">
           {isAdmin
             ? ADMIN_NAV.map((n) => (
                 <Link key={n.to} to={n.to} activeOptions={{ exact: n.exact }} className={linkCls} activeProps={active}>{n.label}</Link>
