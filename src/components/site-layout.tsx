@@ -13,6 +13,14 @@ const NAV = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const ADMIN_NAV = [
+  { to: "/admin", label: "Dashboard", exact: true },
+  { to: "/admin/categories", label: "Categories", exact: false },
+  { to: "/admin/rates", label: "Rates", exact: false },
+  { to: "/admin/orders", label: "Orders Received", exact: false },
+  { to: "/admin/enquiries", label: "Enquiries", exact: false },
+] as const;
+
 export function SiteHeader() {
   const { user, isAdmin } = useAuth();
   const qc = useQueryClient();
@@ -23,32 +31,38 @@ export function SiteHeader() {
     await supabase.auth.signOut();
     navigate({ to: "/auth", replace: true });
   }
+  const linkCls = "whitespace-nowrap text-muted-foreground hover:text-foreground";
+  const active = { className: "text-foreground font-semibold" };
   return (
     <header className="sticky top-0 z-30 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold text-primary">
+        <Link to={isAdmin ? "/admin" : "/"} className="flex items-center gap-2 font-display text-lg font-bold text-primary">
           <Recycle className="h-6 w-6" /> ScrapEase
+          {isAdmin && <span className="rounded bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">Admin</span>}
         </Link>
-        <nav className="flex flex-1 flex-wrap gap-4 text-sm">
-          {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="text-muted-foreground hover:text-foreground" activeProps={{ className: "text-foreground font-semibold" }}>
-              {n.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2 text-sm">
+        <div className="order-3 flex items-center gap-2 text-sm sm:order-none sm:ml-auto">
           {user ? (
             <>
-              {isAdmin && (
-                <Button asChild size="sm" variant="secondary"><Link to="/admin">Admin</Link></Button>
+              {isAdmin ? (
+                <Button asChild size="sm" variant="ghost"><Link to="/">View site</Link></Button>
+              ) : (
+                <Button asChild size="sm" variant="ghost"><Link to="/my-requests">My requests</Link></Button>
               )}
-              <Button asChild size="sm" variant="ghost"><Link to="/my-requests">My requests</Link></Button>
               <Button size="sm" variant="outline" onClick={signOut}>Sign out</Button>
             </>
           ) : (
             <Button asChild size="sm"><Link to="/auth">Sign in</Link></Button>
           )}
         </div>
+        <nav className="-mx-1 flex w-full gap-4 overflow-x-auto px-1 pb-1 text-sm sm:order-first sm:ml-[9.5rem] sm:w-auto sm:flex-1 sm:pb-0 [&]:order-last">
+          {isAdmin
+            ? ADMIN_NAV.map((n) => (
+                <Link key={n.to} to={n.to} activeOptions={{ exact: n.exact }} className={linkCls} activeProps={active}>{n.label}</Link>
+              ))
+            : NAV.map((n) => (
+                <Link key={n.to} to={n.to} className={linkCls} activeProps={active}>{n.label}</Link>
+              ))}
+        </nav>
       </div>
     </header>
   );

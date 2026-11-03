@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { adminRequestsQuery, setFinalTotal, updateRequestStatus, type PickupRequest } from "@/lib/api/pickups";
 import { nextStatuses, STATUS_LABELS, type PickupStatus } from "@/lib/domain/pickup";
 
-export const Route = createFileRoute("/_authenticated/admin/")({
+export const Route = createFileRoute("/_authenticated/admin/orders")({
   component: AdminRequests,
 });
 
