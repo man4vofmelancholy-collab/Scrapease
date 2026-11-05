@@ -74,6 +74,7 @@ function Contact() {
           </div>
         ))}
       </div>
+      <EnquiryForm />
       <p className="mt-8 text-muted-foreground">
         The fastest way to sell is to <Link to="/sell" className="font-medium text-primary">book a pickup online</Link>.
       </p>
