@@ -16,3 +16,6 @@
 - Scrap rates are append-only (`scrap_rates`); the current rate is read from the `current_scrap_rates` view, keeping history.
 - Status transitions are enforced by a DB trigger; `nextStatuses` in the domain module must mirror it.
 - Admin is a role in `user_roles` checked via `has_role`; never on profiles or client storage.
+- Admin UI lives under `/_authenticated/admin/*` (dashboard, categories, rates, orders, enquiries); the header swaps to admin nav when `isAdmin`. UI gating is cosmetic — RLS + `has_role` enforce every admin read/write.
+- Category deletion goes through the `delete_scrap_category` DB function, which deactivates instead of deleting when orders reference the category, so order history stays intact.
+- Contact enquiries (`contact_enquiries`) are insert-only for visitors and readable/manageable only by admins.
