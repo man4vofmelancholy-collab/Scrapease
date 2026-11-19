@@ -11,9 +11,9 @@ import { lovable } from "@/integrations/lovable";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — ScrapEase" },
+      { title: "Sign in — Suhani Traders" },
       { name: "description", content: "Sign in to track your scrap pickup requests." },
-      { property: "og:title", content: "Sign in — ScrapEase" },
+      { property: "og:title", content: "Sign in — Suhani Traders" },
       { property: "og:description", content: "Sign in to track your scrap pickup requests." },
     ],
   }),

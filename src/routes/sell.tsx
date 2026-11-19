@@ -15,9 +15,9 @@ import { estimateTotal, formatINR, lineEstimate, MOBILE_RE, PINCODE_RE, UNIT_LAB
 export const Route = createFileRoute("/sell")({
   head: () => ({
     meta: [
-      { title: "Sell Scrap — Book a Pickup | ScrapEase" },
+      { title: "Sell Scrap — Book a Pickup | Suhani Traders" },
       { name: "description", content: "Select materials, get an instant estimate and book a doorstep scrap pickup." },
-      { property: "og:title", content: "Sell Scrap — Book a Pickup | ScrapEase" },
+      { property: "og:title", content: "Sell Scrap — Book a Pickup | Suhani Traders" },
       { property: "og:description", content: "Select materials, get an instant estimate and book a doorstep scrap pickup." },
     ],
   }),

@@ -46,10 +46,10 @@ function EnquiryForm() {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — ScrapEase" },
-      { name: "description", content: "Get in touch with ScrapEase for scrap pickup queries." },
-      { property: "og:title", content: "Contact — ScrapEase" },
-      { property: "og:description", content: "Get in touch with ScrapEase for scrap pickup queries." },
+      { title: "Contact — Suhani Traders" },
+      { name: "description", content: "Get in touch with Suhani Traders for scrap pickup queries." },
+      { property: "og:title", content: "Contact — Suhani Traders" },
+      { property: "og:description", content: "Get in touch with Suhani Traders for scrap pickup queries." },
     ],
   }),
   component: Contact,

@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/use-auth";
 
 // UI gate only — every admin read/write is also enforced by database role policies.
 export const Route = createFileRoute("/_authenticated/admin")({
-  head: () => ({ meta: [{ title: "Admin — ScrapEase" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Admin — Suhani Traders" }, { name: "robots", content: "noindex" }] }),
   component: AdminLayout,
 });
 

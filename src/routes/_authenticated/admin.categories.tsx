@@ -19,7 +19,7 @@ import { validateRate } from "@/lib/domain/admin";
 import { formatINR, UNIT_LABELS, type ScrapUnit } from "@/lib/domain/pickup";
 
 export const Route = createFileRoute("/_authenticated/admin/categories")({
-  head: () => ({ meta: [{ title: "Categories — ScrapEase Admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Categories — Suhani Traders Admin" }, { name: "robots", content: "noindex" }] }),
   component: Categories,
 });
 

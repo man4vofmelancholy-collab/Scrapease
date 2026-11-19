@@ -8,7 +8,7 @@ import { summarizeOrders } from "@/lib/domain/admin";
 import { formatINR, STATUS_LABELS, UNIT_LABELS } from "@/lib/domain/pickup";
 
 export const Route = createFileRoute("/_authenticated/admin/")({
-  head: () => ({ meta: [{ title: "Dashboard — ScrapEase Admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Suhani Traders Admin" }, { name: "robots", content: "noindex" }] }),
   component: Dashboard,
 });
 

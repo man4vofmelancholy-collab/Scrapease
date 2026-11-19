@@ -8,9 +8,9 @@ import { formatINR, UNIT_LABELS } from "@/lib/domain/pickup";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ScrapEase — Sell Scrap From Home" },
+      { title: "Suhani Traders — Sell Scrap From Home" },
       { name: "description", content: "Check today's scrap rates and book a free doorstep pickup in minutes." },
-      { property: "og:title", content: "ScrapEase — Sell Scrap From Home" },
+      { property: "og:title", content: "Suhani Traders — Sell Scrap From Home" },
       { property: "og:description", content: "Check today's scrap rates and book a free doorstep pickup in minutes." },
     ],
   }),

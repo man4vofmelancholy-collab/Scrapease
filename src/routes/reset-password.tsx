@@ -9,10 +9,10 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Set new password — ScrapEase" },
-      { name: "description", content: "Choose a new password for your ScrapEase account." },
-      { property: "og:title", content: "Set new password — ScrapEase" },
-      { property: "og:description", content: "Choose a new password for your ScrapEase account." },
+      { title: "Set new password — Suhani Traders" },
+      { name: "description", content: "Choose a new password for your Suhani Traders account." },
+      { property: "og:title", content: "Set new password — Suhani Traders" },
+      { property: "og:description", content: "Choose a new password for your Suhani Traders account." },
     ],
   }),
   component: Reset,

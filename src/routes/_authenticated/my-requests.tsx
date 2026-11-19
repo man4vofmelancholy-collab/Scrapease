@@ -5,7 +5,7 @@ import { RequestCard } from "@/components/request-card";
 import { myRequestsQuery } from "@/lib/api/pickups";
 
 export const Route = createFileRoute("/_authenticated/my-requests")({
-  head: () => ({ meta: [{ title: "My pickup requests — ScrapEase" }] }),
+  head: () => ({ meta: [{ title: "My pickup requests — Suhani Traders" }] }),
   component: MyRequests,
 });
 

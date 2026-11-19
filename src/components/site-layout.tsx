@@ -37,7 +37,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
         <Link to={isAdmin ? "/admin" : "/"} className="flex items-center gap-2 font-display text-lg font-bold text-primary">
-          <Recycle className="h-6 w-6" /> ScrapEase
+          <Recycle className="h-6 w-6" /> Suhani Traders
           {isAdmin && <span className="rounded bg-primary px-1.5 py-0.5 text-xs font-semibold text-primary-foreground">Admin</span>}
         </Link>
         <div className="ml-auto flex items-center gap-2 text-sm md:order-last md:ml-0">
@@ -72,7 +72,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 border-t bg-secondary/50">
       <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground">
-        © {new Date().getFullYear()} ScrapEase · Doorstep scrap pickup. Rates are indicative; final price after weighing.
+        © {new Date().getFullYear()} Suhani Traders · Doorstep scrap pickup. Rates are indicative; final price after weighing.
       </div>
     </footer>
   );

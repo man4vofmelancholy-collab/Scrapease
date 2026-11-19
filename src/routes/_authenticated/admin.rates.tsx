@@ -17,7 +17,7 @@ import { validateRate } from "@/lib/domain/admin";
 import { formatINR, UNIT_LABELS } from "@/lib/domain/pickup";
 
 export const Route = createFileRoute("/_authenticated/admin/rates")({
-  head: () => ({ meta: [{ title: "Rates — ScrapEase Admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Rates — Suhani Traders Admin" }, { name: "robots", content: "noindex" }] }),
   component: Rates,
 });
 

@@ -14,7 +14,7 @@ import { deleteEnquiry, enquiriesQuery, updateEnquiry, type Enquiry } from "@/li
 import { ENQUIRY_LABELS, type EnquiryStatus } from "@/lib/domain/admin";
 
 export const Route = createFileRoute("/_authenticated/admin/enquiries")({
-  head: () => ({ meta: [{ title: "Enquiries — ScrapEase Admin" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Enquiries — Suhani Traders Admin" }, { name: "robots", content: "noindex" }] }),
   component: Enquiries,
 });
 
@@ -68,7 +68,7 @@ function EnquiryCard({ e }: { e: Enquiry }) {
       </div>
       <div className="mt-2 space-x-3">
         {e.phone && <a className="text-primary" href={`tel:${e.phone}`}>{e.phone}</a>}
-        {e.email && <a className="text-primary" href={`mailto:${e.email}?subject=${encodeURIComponent("Re: your ScrapEase enquiry")}`}>{e.email}</a>}
+        {e.email && <a className="text-primary" href={`mailto:${e.email}?subject=${encodeURIComponent("Re: your Suhani Traders enquiry")}`}>{e.email}</a>}
       </div>
       <p className="mt-3 whitespace-pre-wrap">{e.message}</p>
       <Textarea className="mt-3" rows={2} maxLength={2000} placeholder="Internal notes (only admins see this)" value={notes} onChange={(ev) => setNotes(ev.target.value)} />
